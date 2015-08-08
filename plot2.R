@@ -1,3 +1,22 @@
-## Generate second plot.
-par(mfrow=c(1,1))
-with(table, plot(DateTime, Global_active_power, type="l", ylab="Global Active Power (kilowatts)"))
+## 
+## plot2.R - Generates plot2.png
+##
+## This script is a wrapper around functions to load and plot data for 
+## course project 1. See main.R for code that loads the data and Generates
+## the plot. 
+##
+source("main.R")
+
+## Retain current graphics device.
+prev_dev = dev.cur()
+
+## Import the data
+table <- import_data()
+
+## Plot to PNG file.
+png(filename="plot2.png", width = 480, height = 480)
+plot2(table)
+dev.off()
+
+## Restore previous graphics device.
+dev.set(prev_dev)

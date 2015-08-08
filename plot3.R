@@ -1,10 +1,22 @@
-## Generate plot #3
+## 
+## plot3.R - Generates plot3.png
 ##
-par(mfrow=c(1,1))
+## This script is a wrapper around functions to load and plot data for 
+## course project 1. See main.R for code that loads the data and Generates
+## the plot. 
+##
+source("main.R")
 
-with(table, plot(DateTime, Sub_metering_1, type="n", xlab="", ylab="Energy sub metering"))
-with(table, points(DateTime, Sub_metering_1, type="l"))
-with(table, points(DateTime, Sub_metering_2, type="l", col="red"))
-with(table, points(DateTime, Sub_metering_3, type="l", col="blue"))
+## Retain current graphics device.
+prev_dev = dev.cur()
 
-legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, col=c("black", "red", "blue"))
+## Import the data
+table <- import_data()
+
+## Plot to PNG file.
+png(filename="plot3.png", width = 480, height = 480)
+plot3(table)
+dev.off()
+
+## Restore previous graphics device.
+dev.set(prev_dev)
