@@ -4,7 +4,7 @@ For the assignment details (originally README.md) see [Assignment.md](Assignment
 
 All the main functionality for importing data and plotting is included in [main.R](main.R).
 
-There are four stand along R source files, one for generating each plot. These may be either
+There are four stand alone R source files, one for generating each plot. These may be either
 sourced from RStudio or an R console by invoking
 
         source("plot1.R")
