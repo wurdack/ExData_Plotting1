@@ -15,7 +15,7 @@ table <- import_data()
 
 ## Plot to PNG file.
 png(filename="plot4.png", width = 480, height = 480)
-plot1(table)
+plot4(table)
 dev.off()
 
 ## Restore previous graphics device.
